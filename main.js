@@ -6,7 +6,9 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 client.on("message", msg => {
-  if (msg.content.startsWith(`${PREFIX}ping`)) {
+  const args = msg.content.split(/ +/g);
+  const cmd = args.shift().toLowerCase();
+  if (cmd === `${PREFIX}ping`) {
     msg.reply("pong");
   }
 });

@@ -9,13 +9,22 @@ client.on("message", msg => {
   if (msg.author.bot) return;
   const args = msg.content.split(/ +/g);
   const cmd = args.shift().toLowerCase();
-  if (cmd === `${PREFIX}ping`) {
-    msg.reply("pong");
+
+  if (cmd === `${PREFIX}say`) {
+    msg.channel.send(args.join(" "));
+    msg.delete().then(console.log("Message delete"));
   }
-  if (cmd === `nlb`) {
-    msg.channel.send(
-      "la vie de ma mère ,la douane des stupes , majeur en l'aire , ves-ki les quef j'sais comment faire , oué la justice **QUEL SAOPE**!!! *Bipe boup..*"
-    );
+  if (cmd === `${PREFIX}role`) {
+    const role = msg.guild.roles.find(r => r.name === args[0]);
+    msg.delete();
+    if (!role) return msg.channel.send("ce role n'existe pas");
+    if (msg.member.roles.find(r => r.name === args[0])) {
+      msg.member.roles.remove(role);
+      msg.channel.send(`Le role ${role} à été enlevé à ${msg.author}`);
+    } else {
+      msg.member.roles.add(role);
+      msg.channel.send(`Le role ${role} à été ajouté à ${msg.author}`);
+    }
   }
 });
 

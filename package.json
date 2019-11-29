@@ -6,7 +6,8 @@
   "author": "BuildTools <unconfigured@null.spigotmc.org>",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "discordjs/discord.js"
+    "discord.js": "discordjs/discord.js",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "eslint": "^6.6.0",

@@ -1,14 +1,18 @@
-module.exports = (client, message, MessageEmbed) => {
+module.exports = async (client, message) => {
   if (message.author.bot) return;
-  if (message.content.indexOf(client.PREFIX) !== 0) return;
+  if (message.content.indexOf("<@643107509674180610>") !== -1) {
+    message.channel.send("Yes ? It's me . *Bip boup*"); // On a bot mention.
+    return;
+  }
+  const settings = await client.getGuild(message.guild);
+  if (message.content.indexOf(settings.prefix) !== 0) return; // Start with prefix
   const args = message.content
-    .slice(client.PREFIX.length)
+    .slice(settings.prefix.length)
     .trim()
     .split(/ +/g);
   const command = args.shift().toLowerCase();
-  const logschannel = client.channels.find(r => r.name === "logs");
 
   if (client.commands.has(command)) {
-    client.commands.get(command)(client, message, args, logschannel);
+    client.commands.get(command)(client, message, args, settings);
   }
 };

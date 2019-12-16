@@ -5,7 +5,7 @@ module.exports = (client, message) => {
     .setTitle(message.guild.name)
     .setDescription("Create a discord bot with blocks")
     .setThumbnail(message.guild.iconURL())
-    .setURL("http://patatabot.com")
+    .setURL("http://then().bot")
     .setColor(0x00ae86)
     .addField("Members", message.guild.memberCount)
     .addField("Hitler", "39 - 45")

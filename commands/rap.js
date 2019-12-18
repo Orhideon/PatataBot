@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
-module.exports = (client, message) => {
+exports.run = (client, message) => {
   const embed = new MessageEmbed()
     .setTitle("Voici la liste des meilleurs rappeurs **FR** :")
     .addField(
@@ -11,3 +11,6 @@ module.exports = (client, message) => {
 
   message.channel.send(embed);
 };
+exports.help = {
+  name: "rap"
+}

@@ -18,14 +18,6 @@ module.exports = client => {
     }
     return data.updateOne(settings);
   };
-  client.updateGuildArray = async (guild, settings, arrayName) => {
-    let data = await client.getGuild(guild);
-    if (typeof data !== "object") data = {};
-    if (!data[arrayName].includes(settings)) {
-      data[arrayName].push(settings);
-    }
-    return data.updateOne(settings);
-  };
 
   client.createGuild = async guild => {
     const merged = Object.assign({ _id: mongoose.Types.ObjectId() }, guild);

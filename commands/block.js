@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
-module.exports = (client, message) => {
+exports.run = (client, message) => {
   let args = ["undefined", "undefined", "undefined"];
   args = message.content
     .slice(client.PREFIX.length + 5)
@@ -21,3 +21,6 @@ module.exports = (client, message) => {
     .setFooter(`*Block added by ${message.author.tag}*`);
   message.channel.send(embed);
 };
+exports.help = {
+  name: "block"
+}

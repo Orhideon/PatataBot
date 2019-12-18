@@ -15,6 +15,7 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
+    "no-dynamic-require": "off"
     'prefer-template': 'off',
     'no-eval': 'off',
     'import/no-unresolved': 'off',

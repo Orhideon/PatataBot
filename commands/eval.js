@@ -1,4 +1,4 @@
-module.exports = async (client, message, args, settings) => {
+exports.run = async (client, message, args, settings) => {
   if (message.author.bot) return;
   function clean(text) {
     if (typeof text === "string")
@@ -23,3 +23,6 @@ module.exports = async (client, message, args, settings) => {
     message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
   }
 };
+exports.help = {
+  name: "eval"
+}

@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
-module.exports = (client, message) => {
+exports.run = (client, message) => {
   const embed = new MessageEmbed()
     .setTitle(message.guild.name)
     .setDescription("Create a discord bot with blocks")
@@ -16,3 +16,6 @@ module.exports = (client, message) => {
     .setTimestamp();
   message.channel.send(embed);
 };
+exports.help = {
+  name: "sinfo"
+}

@@ -40,7 +40,8 @@
         2
       ],
       "curly": "off",
-      "no-trailing-spaces": "off"
+      "no-trailing-spaces": "off",
+      "no-dynamic-require": "off"
     }
   }
 }
